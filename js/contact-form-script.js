@@ -2,7 +2,7 @@ $("#contactForm").validator().on("submit", function (event) {
     if (event.isDefaultPrevented()) {
         // handle the invalid form...
         formError();
-        submitMSG(false, "Did you fill in the form properly?");
+        submitMSG(false, "Looks like we might need a bit more info to better answer your query");
     } else {
         // everything looks good!
         event.preventDefault();
@@ -21,7 +21,7 @@ function submitForm(){
 
     $.ajax({
         type: "POST",
-        url: "https://localhost:7185/Email",
+        url: "https://shareservices.azurewebsites.net/Email",
         data: "name=" + name + "&email=" + email + "&number=" + number + "&message=" + message,
         success : function(text){
             if (text == "success"){
