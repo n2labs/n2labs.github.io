@@ -162,7 +162,7 @@ button:focus {
 }
 
 .form-control::-moz-placeholder {
-	color: #ffffff;
+	color: #4f4b4b;
 	opacity: 1;
 }
 
@@ -1505,7 +1505,7 @@ p.count-text {
 .contact-block {}
 
 .contact-block .form-group .form-control {
-	background: #333;
+	background: rgb(221, 216, 216);
 	height: 48px;
 	font-size: 14px;
 	border: 0;
