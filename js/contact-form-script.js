@@ -7,6 +7,7 @@ $("#contactForm").validator().on("submit", function (event) {
         // everything looks good!
         event.preventDefault();
         submitForm();
+        formSuccess();
     }
 });
 
@@ -20,12 +21,13 @@ function submitForm(){
 
 
     $.ajax({
+        async: true,
         type: "POST",
         url: "https://shareservices.azurewebsites.net/Email",
         data: "name=" + name + "&email=" + email + "&number=" + number + "&message=" + message,
         success : function(text){
             if (text == "success"){
-                formSuccess();
+                //formSuccess();
             } else {
                 formError();
                 submitMSG(false,text);
@@ -36,7 +38,7 @@ function submitForm(){
 
 function formSuccess(){
     $("#contactForm")[0].reset();
-    submitMSG(true, "Message Submitted!")
+    submitMSG(true, "Thanks for the message! We'll be in touch.")
 }
 
 function formError(){
